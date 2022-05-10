@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/1f1a02a855.js" crossorigin="anonymous"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <title>JS Bin</title>
+</head>
+
+<body>
+  <div
+    x-data="{small: 0, medium: 0, large: 0,smallPrice: 48.99, mediumPrice: 78.99, largePrice: 114.99, addBtnClicked: false}">
+    <div>
+      <div>
+        <h1>Perfect Pizza</h1>
+      </div>
+
+      <div class="cart">
+        <h3>Shopping Cart</h3>
+        <i class="fa-solid fa-cart-shopping"></i>
+        <table>
+          <div x-show="small > 0 || medium > 0 || large > 0">
+            <template x-if="small > 0">
+              <tr>
+                <td>Small Pizza Total:</td>
+                <td><div x-text="(small * smallPrice).toFixed(2)">R0.00</div></td>
+                <td>
+                  <button @click="small++">+</button>
+                  <button @click="small--">-</button>
+                </td>
+              </tr>
+            </template>
+
+            <template x-if="medium > 0">
+              <tr>
+                <td>Medium Pizza Total:</td>
+                <td><div x-text="(medium * mediumPrice).toFixed(2)">R0.00</div></td>
+                <td>
+                  <button @click="medium++">+</button>
+                  <button @click="medium--">-</button>
+                </td>
+              </tr>
+            </template>
+            <template x-if="large > 0">
+              <tr>
+                <td>Large Pizza Total:</td>
+                <td><div x-text="(large * largePrice).toFixed(2)">R0.00</div></td>
+                <td>
+
+                  <button @click="large++">+</button>
+                  <button @click="large--">-</button>
+                </td>
+              </tr>
+            </template>
+            <tr>
+              <td>Total Cart Price:</td>
+              <td><div
+                  x-text="(small * smallPrice+ medium * mediumPrice + large * largePrice).toFixed(2)">R0.00</div>
+              </td>
+            </tr>
+          </div>
+        </table>
+      </div>
+    </div>
+
+    <div class="specials">
+      <div class="medium">
+        <img src="https://image.shutterstock.com/image-vector/italian-pizza-tomato-sausage-olive-600w-554691619.jpg"
+          alt="">
+        <h2>Medium Pizza</h2>
+        <h3>R78.99</h3>
+        <i>
+          <ul>
+            <li>medium margeritha pizza with 3 toppings max.</li>
+            <li>2 or less meat topping.</li>
+            <li>3 or less other toppings.</li>
+          </ul>
+        </i>
+        <button @click="medium++, addBtnClicked = !addBtnClicked">Add to cart</button>
+      </div>
+      <div class="large">
+        <img src="https://image.shutterstock.com/image-vector/italian-pizza-tomato-sausage-olive-600w-554691619.jpg"
+          alt="">
+        <h2>Large Pizza</h2>
+        <h3>R114.99</h3>
+        <i>
+          <ul>
+            <li>large margeritha pizza with 3 toppings max.</li>
+            <li>3 meat toppings max.</li>
+            <li>3 or less other toppings.</li>
+          </ul>
+        </i>
+        <button @click="large++, addBtnClicked = !addBtnClicked">Add to cart</button>
+      </div>
+      <div class="small">
+        <img src="https://image.shutterstock.com/image-vector/italian-pizza-tomato-sausage-olive-600w-554691619.jpg"
+          alt="">
+        <h2>Small Pizza</h2>
+        <h3>R48.99</h3>
+        <i>
+          <ul>
+            <li>small pizza with 3 toppings</li>
+            <li>1 meat topping.</li>
+            <li>3 or less other toppings.</li>
+          </ul>
+        </i>
+        <button @click="small++, addBtnClicked = !addBtnClicked">Add to cart</button>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="contact">
+      <strong>Contact us at:</strong>
+      (021)-541-1000
+
+      <strong>twitter /fb /insta </strong> @perfectpizza
+    </div>
+    <div class="address">
+      Pizza Plaza
+      <br>
+      Dough Road
+      <br>
+      Base Town
+      <br>
+      7890
+    </div>
+  </div>
+  </div>
+
+</body>
+
+</html>
