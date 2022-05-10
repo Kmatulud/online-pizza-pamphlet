@@ -25,8 +25,8 @@
           <div x-show="small > 0 || medium > 0 || large > 0">
             <template x-if="small > 0">
               <tr>
-                <td>Small Pizza Total:</td>
-                <td><div x-text="(small * smallPrice).toFixed(2)">R0.00</div></td>
+                <td>Small Pizza Quantity:</td>
+                <td><div x-text="(small)"></div></td>
                 <td>
                   <button @click="small++">+</button>
                   <button @click="small--">-</button>
@@ -36,8 +36,8 @@
 
             <template x-if="medium > 0">
               <tr>
-                <td>Medium Pizza Total:</td>
-                <td><div x-text="(medium * mediumPrice).toFixed(2)">R0.00</div></td>
+                <td>Medium Pizza Quantity:</td>
+                <td><div x-text="(medium)"></div></td>
                 <td>
                   <button @click="medium++">+</button>
                   <button @click="medium--">-</button>
@@ -46,8 +46,8 @@
             </template>
             <template x-if="large > 0">
               <tr>
-                <td>Large Pizza Total:</td>
-                <td><div x-text="(large * largePrice).toFixed(2)">R0.00</div></td>
+                <td>Large Pizza Quantity:</td>
+                <td><div x-text="(large)"></div></td>
                 <td>
 
                   <button @click="large++">+</button>
@@ -82,7 +82,7 @@
             <li>3 or less other toppings.</li>
           </ul>
         </i>
-        <button @click="medium++, addBtnClicked = !addBtnClicked">Add to cart</button>
+        <button class="buttons" @click="medium++, addBtnClicked = !addBtnClicked">Add To Cart</button>
       </div>
       <div class="large">
         <img src="https://image.shutterstock.com/image-vector/italian-pizza-tomato-sausage-olive-600w-554691619.jpg"
@@ -96,7 +96,7 @@
             <li>3 or less other toppings.</li>
           </ul>
         </i>
-        <button @click="large++, addBtnClicked = !addBtnClicked">Add to cart</button>
+        <button class="buttons" @click="large++, addBtnClicked = !addBtnClicked">Add To Cart</button>
       </div>
       <div class="small">
         <img src="https://image.shutterstock.com/image-vector/italian-pizza-tomato-sausage-olive-600w-554691619.jpg"
@@ -110,7 +110,7 @@
             <li>3 or less other toppings.</li>
           </ul>
         </i>
-        <button @click="small++, addBtnClicked = !addBtnClicked">Add to cart</button>
+        <button class="buttons" @click="small++, addBtnClicked = !addBtnClicked">Add To Cart</button>
       </div>
     </div>
   </div>

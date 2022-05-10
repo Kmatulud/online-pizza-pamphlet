@@ -7,8 +7,6 @@ body {
 
 .small {
     background-color: #15616D;
-
-
 }
 
 .medium {
@@ -25,7 +23,6 @@ body {
     /* border: 1px solid lightgrey; */
     margin: 0em;
     padding: 1em;
-
 }
 
 .small img {
@@ -40,6 +37,12 @@ body {
 .large img {
     width: 7em;
 
+}
+
+.buttons{
+    padding: .5rem;
+    background-color: #B7C3F3;
+    cursor: pointer;
 }
 
 .footer {
