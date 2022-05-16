@@ -5,22 +5,23 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="style.css">
-  <script src="https://kit.fontawesome.com/1f1a02a855.js" crossorigin="anonymous"></script>
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <!-- <script src="https://kit.fontawesome.com/1f1a02a855.js" crossorigin="anonymous"></script> -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"
+  type='text/css'>
   <title>JS Bin</title>
 </head>
 
 <body>
   <div
-    x-data="{ small: 0, medium: 0, large: 0, smallPrice: 48.99, mediumPrice: 78.99, largePrice: 114.99, addBtnClicked: false }">
-    <div>
+    x-data="{ small: 0, medium: 0, large: 0, smallPrice: 48.99, mediumPrice: 78.99, largePrice: 114.99,addBtnClicked: false, error:'Insufficient funds', success:'Successful Purchase', amount:'' }">
       <div>
         <h1>Perfect Pizza</h1>
       </div>
 
       <div class="cart">
-        <h3>Shopping Cart</h3>
-        <i class="fa-solid fa-cart-shopping"></i>
+        <h3>Your Cart</h3>
+        <i class="fas fa-solid fas-cart-shopping"></i>
         <table>
           <div x-show="small > 0 || medium > 0 || large > 0">
             <template x-if="small > 0">
@@ -49,24 +50,39 @@
                 <td>Large Pizza Quantity:</td>
                 <td><div x-text="(large)"></div></td>
                 <td>
-
                   <button @click="large++">+</button>
                   <button @click="large--">-</button>
                 </td>
               </tr>
             </template>
             <tr>
-              <td>Total Cart Price:</td>
+              <td>Total:</td>
               <td><div
                   x-text="(small * smallPrice+ medium * mediumPrice + large * largePrice).toFixed(2)">R0.00</div>
               </td>
-              <td>
-                <a href="#">Checkout</a>
-              </td>
             </tr>
+
           </div>
+
         </table>
-      </div>
+        <div x-show="small > 0 || medium > 0 || large > 0">
+
+          <input type="number" x-model="amount" placeholder="Amount to Pay">
+          <button @click="amount='', small=0, medium=0,large=0">Checkout</button>
+        </form>
+        <form x-on:submit.prevent>
+
+        <template x-if="amount > (small * smallPrice + medium * mediumPrice + large * largePrice).toFixed(2)">
+          <div x-init="alert(error)"></div>
+        </template>
+        
+        <template x-if="amount < (small * smallPrice + medium * mediumPrice + large * largePrice).toFixed(2)">
+          <div x-init="alert(error)"></div>
+        </template>
+        <template x-if="amount == (small * smallPrice + medium * mediumPrice + large * largePrice).toFixed(2)">
+          <div x-init="alert(success)"></div>
+        </template>
+        </div>
     </div>
 
     <div class="specials">
